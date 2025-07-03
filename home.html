@@ -1,45 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amari Byrd's | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amari's Retro Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', monospace;
+      background-color: #0d0d0d;
+      color: #ffffff;
+      background-image: repeating-linear-gradient(45deg, #000000 0, #000000 2px, #1a1a1a 2px, #1a1a1a 4px);
+    }
+
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #splash-screen p {
+      color: #ffcc00;
+      font-size: 18px;
+      font-family: 'Press Start 2P', monospace;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      border: 4px solid #662d91;
+      background-color: #000;
+      box-shadow: 0 0 10px #662d91;
+    }
+
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav button {
+      background-color: #662d91;
+      color: white;
+      border: 3px solid #00aaff;
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    nav button:hover {
+      background-color: #ff3399;
+      transform: scale(1.1);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 150px;
+      background-color: #220044;
+      color: #00aaff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+      border: 3px solid #00aaff;
+      text-align: center;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .welcome {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .welcome h2, .skills h2 {
+      color: #ffcc00;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .welcome p, .skills ul {
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin-top: 10px;
+    }
+
+    .projects button {
+      background-color: #111155;
+      color: #00ccff;
+      border: 2px solid #00aaff;
+      padding: 10px;
+      font-size: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s ease;
+    }
+
+    .projects button:hover {
+      background-color: #333399;
+    }
+
+    .skills {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skills li {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 700px) {
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .projects, .welcome {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Amari Byrd</h1>
+
+  <!-- 🔃 Splash Screen -->
+  <div id="splash-screen">
+    <p class="blinking">▶ NOW LOADING...</p>
+  </div>
+
+  <!-- 🔊 Sound Effects -->
+  <audio id="arcade-sound" src="arcade-power-on.mp3" preload="auto"></audio>
+  <audio id="game-boy-sound" src="game-boy-start.mp3" preload="auto"></audio>
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+  <div class="container">
+    <h1>AMARI'S RETRO PORTFOLIO</h1>
+
     <nav>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <button onclick="playSound()">HOME</button>
+      <button onclick="playSound()">ABOUT</button>
+      <button onclick="playSound()">PROJECTS</button>
+      <button onclick="playSound()">CONTACT</button>
     </nav>
-  </header>
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Write a short introduction about yourself, your skills, and your interests.</p>
-    </section>
-    <section id="projects">
-      <h2>Projects</h2>
+
+    <div class="image-placeholder">
+      [ Add your logo or pixel portrait here! ]
+    </div>
+
+    <div class="main-content">
+      <div class="welcome">
+        <h2>WELCOME!</h2>
+        <p>
+          Yo! I’m Amari — a developer who turns pixels into magic. Whether it’s building games, data-driven apps, or AI-powered sites, I bring retro flavor to modern tech. Explore below and vibe with my projects!
+        </p>
+      </div>
+
+      <div class="projects">
+        <button onclick="playSound()">🎮 Loot Box Logic - A site on microtransaction ethics in games</button>
+        <button onclick="playSound()">🧠 AI Career Slides - Interactive ML & AI career guide</button>
+      </div>
+    </div>
+
+    <div class="skills">
+      <h2>TECHNICAL SKILLS:</h2>
       <ul>
-        <li>
-          <h3>Project Title</h3>
-          <p>Brief description of your project.</p>
-        </li>
-        <!-- Add more projects as needed -->
+        <li>💻 JavaScript</li>
+        <li>🐍 Python</li>
+        <li>🎨 CSS</li>
+        <li>🗄️ SQL</li>
       </ul>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-      <!-- Add more contact info or a contact form if you like -->
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Your Name</p>
-  </footer>
+
+      <h2>SOFT SKILLS:</h2>
+      <ul>
+        <li>⏱️ Time Management</li>
+        <li>🔄 Adaptability</li>
+        <li>👂 Active Listening</li>
+        <li>🧠 Organization</li>
+        <li>💗 Empathy</li>
+        <li>🤝 Teamwork</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function playSound() {
+      const sound = document.getElementById("click-sound");
+      sound.currentTime = 0;
+      sound.play();
+    }
+
+    // Arcade power-on sound & Game Boy startup sound on splash page load
+    window.addEventListener('load', () => {
+      const arcadeSound = document.getElementById("arcade-sound");
+      const gameBoySound = document.getElementById("game-boy-sound");
+
+      arcadeSound.play();  // Play arcade sound
+      gameBoySound.play(); // Play Game Boy sound
+
+      // Fade out the splash screen after the sounds finish
+      setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        splash.style.transition = 'opacity 1s ease';
+        splash.style.opacity = 0;
+        setTimeout(() => splash.remove(), 1000);
+      }, 3000); // Adjusted to allow both sounds to play
+    });
+  </script>
+
 </body>
 </html>
