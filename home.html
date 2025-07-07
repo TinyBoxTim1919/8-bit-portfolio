@@ -5,206 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Amari's Retro Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <style>
-
-
-
-    body {
-      margin: 0;
-      font-family: 'Press Start 2P', monospace;
-      background-color: #0d0d0d;
-      color: #ffffff;
-      background-image: repeating-linear-gradient(45deg, #000000 0, #000000 2px, #1a1a1a 2px, #1a1a1a 4px);
-    }
-
-    #splash-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    #splash-screen p {
-      color: #ffcc00;
-      font-size: 18px;
-      font-family: 'Press Start 2P', monospace;
-      animation: blink 1s step-start infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      border: 4px solid #662d91;
-      background-color: #000;
-      box-shadow: 0 0 10px #662d91;
-    }
-
-    h1 {
-      font-size: 28px;
-      text-align: center;
-      color: #ffcc00;
-      margin-bottom: 20px;
-    }
-
-/* Apply the font to the entire page */
-body {
-  font-family: 'Press Start 2P', monospace;
-}
-
-/* Navbar styles */
-nav {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-nav button {
-  background-color: #220044; /* Dark background for buttons */
-  color: #ffcc00; /* Retro yellow text */
-  border: 3px solid #00aaff; /* Retro blue border */
-  margin: 5px;
-  padding: 10px 15px;
-  font-size: 14px; /* Adjust button text size */
-  cursor: pointer;
-  text-transform: uppercase; /* Capitalize button text */
-  transition: all 0.2s ease;
-  font-family: 'Press Start 2P', monospace; /* Explicitly apply font */
-}
-
-nav button:hover {
-  background-color: #ff3399; /* Hover effect - pink background */
-  color: #ffffff; /* Hover effect - white text */
-  transform: scale(1.1); /* Hover effect - grow button */
-}
-
-
-    img{
-      width:100%
-    }
-
-.image-placeholder {
-  width: 180px;
-  height: 240px; /* Taller than wide for portrait */
-  background-color: #220044;
-  color: #00aaff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10px;
-  margin: 0 auto 20px auto;
-  border: 3px solid #00aaff;
-  text-align: center;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-
-
-    .main-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .welcome {
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 20px;
-    }
-
-    .welcome h2, .skills h2 {
-      color: #ffcc00;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-
-    .welcome p, .skills ul {
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 400px;
-      margin-top: 10px;
-    }
-
-    .projects button {
-      background-color: #111155;
-      color: #00ccff;
-      border: 2px solid #00aaff;
-      padding: 10px;
-      font-size: 10px;
-      cursor: pointer;
-      text-align: left;
-      transition: background 0.2s ease;
-    }
-
-    .projects button:hover {
-      background-color: #333399;
-    }
-
-    .skills {
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .skills ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .skills li {
-      margin: 5px 0;
-    }
-
-    @media (max-width: 700px) {
-      .main-content {
-        flex-direction: column;
-        align-items: center;
-      }
-      .projects, .welcome {
-        max-width: 100%;
-      }
-    }
-
-.start-button {
-  margin-top: 20px;
-  padding: 10px 15px;
-  font-size: 10px;
-  font-family: 'Press Start 2P', monospace;
-  background-color: #000;
-  color: #ffcc00;
-  border: 2px solid #ffcc00;
-  cursor: pointer;
-  animation: blink 1s step-start infinite;
-  z-index: 2;
-  position: relative;
-}
-
-.start-button:hover {
-  background-color: #220044;
-  color: #ffffff;
-  border-color: #00aaff;
-}
-
-    
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
   <!-- 🔃 Splash Screen -->
 <div id="splash-screen">
   <p id="loading-text" class="blinking">▶ NOW LOADING...</p>
@@ -221,10 +25,9 @@ nav button:hover {
 
 
   <div class="container">
-    <h1>AMARI'S RETRO PORTFOLIO</h1>
+    <h1>AMARI'S RETRO PORTFOLIO!</h1>
 
     <nav>
-      <button onclick="playSound()">HOME</button>
       <button onclick="playSound()">ABOUT</button>
       <button onclick="playSound()">PROJECTS</button>
       <button onclick="playSound()">CONTACT</button>
@@ -238,14 +41,42 @@ nav button:hover {
       <div class="welcome">
         <h2>WELCOME!</h2>
         <p>
-          Yo! I’m Amari — a Fresh graduate From Muncie Central Highschool. Whether it’s building games, data-driven apps, or AI-powered sites, I bring retro flavor to modern tech. Explore below and vibe with my projects!
+          Yo! I’m Amari — A fresh graduate from Muncie Central Highschool. Whether it’s building games, or data-driven apps; I bring retro flavor to modern tech. Explore below and vibe with my projects!
         </p>
       </div>
 
-      <div class="projects">
-        <button onclick="playSound()">🎮 Loot Box Logic - A site on microtransaction ethics in games</button>
-        <button onclick="playSound()">🧠 AI Career Slides - Interactive ML & AI career guide</button>
-      </div>
+<section class="about-me">
+  <h2>🕹️ ABOUT ME</h2>
+  <p>
+    I’m Amari Byrd — a creative developer blending retro aesthetics with modern technology. A recent graduate from Muncie Central High School, I specialize in web design, interactive media, and game-inspired projects. I'm passionate about coding, pixel art, and making experiences that are fun, functional, and full of flair.
+  </p>
+  <p>
+    Whether I’m building a portfolio site that feels like an old-school arcade or diving into ethical game design, I bring high energy and a love for digital storytelling.
+  </p>
+</section>
+
+ <section class="my-projects">
+  <h2>📁 MY PROJECTS</h2>
+
+  <div class="project-card">
+    <h3>🎮 Loot Box Logic</h3>
+    <p>A colorful website that explores the ethics of microtransactions in modern games. Built with HTML, CSS, and a splash of opinionated design!</p>
+    <button onclick="playSound()">View Project</button>
+  </div>
+
+  <div class="project-card">
+    <h3>🧠 AI Career Slides</h3>
+    <p>An interactive slideshow showcasing real-world AI & Machine Learning career paths. Designed for clarity and accessibility.</p>
+    <button onclick="playSound()">Launch Slides</button>
+  </div>
+
+  <div class="project-card">
+    <h3>💾 Retro Portfolio</h3>
+    <p>This very site! Designed with 8-bit vibes, animations, and a splash screen to stand out while showing off my skills.</p>
+    <button onclick="playSound()">Reload Portfolio</button>
+  </div>
+</section>
+
     </div>
 
     <div class="skills">
@@ -267,37 +98,15 @@ nav button:hover {
         <li>🤝 Teamwork</li>
       </ul>
     </div>
+
+    <section class="contact-section">
+  <h2>📬 CONTACT ME</h2>
+  <p>If you'd like to connect, collaborate, or just say hi, here's how to reach me!</p>
+
+</form>
+
+
   </div>
-
-<script>
-  function playSound() {
-    const sound = document.getElementById("click-sound");
-    sound.currentTime = 0;
-    sound.play();
-  }
-
-  function startSplash() {
-    const splashSound = document.getElementById("splash-sound");
-    splashSound.volume = 1;
-    splashSound.play();
-
-    const splash = document.getElementById('splash-screen');
-    splash.style.transition = 'opacity 1s ease';
-    splash.style.opacity = 0;
-
-    setTimeout(() => splash.remove(), 1000);
-  }
-
-  window.addEventListener('load', () => {
-    // After 3 seconds, hide loading text, show start button
-    setTimeout(() => {
-      document.getElementById('loading-text').style.display = 'none';
-      document.getElementById('start-button').style.display = 'inline-block';
-    }, 3000); // Adjust timing as needed
-  });
-</script>
-
-
-
+<script src="script.js"></script>
 </body>
 </html>
