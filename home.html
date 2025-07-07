@@ -6,6 +6,9 @@
   <title>Amari's Retro Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <style>
+
+
+
     body {
       margin: 0;
       font-family: 'Press Start 2P', monospace;
@@ -54,40 +57,58 @@
       margin-bottom: 20px;
     }
 
-    nav {
-      text-align: center;
-      margin-bottom: 20px;
+/* Apply the font to the entire page */
+body {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Navbar styles */
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav button {
+  background-color: #220044; /* Dark background for buttons */
+  color: #ffcc00; /* Retro yellow text */
+  border: 3px solid #00aaff; /* Retro blue border */
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px; /* Adjust button text size */
+  cursor: pointer;
+  text-transform: uppercase; /* Capitalize button text */
+  transition: all 0.2s ease;
+  font-family: 'Press Start 2P', monospace; /* Explicitly apply font */
+}
+
+nav button:hover {
+  background-color: #ff3399; /* Hover effect - pink background */
+  color: #ffffff; /* Hover effect - white text */
+  transform: scale(1.1); /* Hover effect - grow button */
+}
+
+
+    img{
+      width:100%
     }
 
-    nav button {
-      background-color: #662d91;
-      color: white;
-      border: 3px solid #00aaff;
-      margin: 5px;
-      padding: 10px 15px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+.image-placeholder {
+  width: 180px;
+  height: 240px; /* Taller than wide for portrait */
+  background-color: #220044;
+  color: #00aaff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  margin: 0 auto 20px auto;
+  border: 3px solid #00aaff;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-    nav button:hover {
-      background-color: #ff3399;
-      transform: scale(1.1);
-    }
 
-    .image-placeholder {
-      width: 100%;
-      height: 150px;
-      background-color: #220044;
-      color: #00aaff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      margin-bottom: 20px;
-      border: 3px solid #00aaff;
-      text-align: center;
-    }
 
     .main-content {
       display: flex;
@@ -158,19 +179,46 @@
         max-width: 100%;
       }
     }
+
+.start-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 10px;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #000;
+  color: #ffcc00;
+  border: 2px solid #ffcc00;
+  cursor: pointer;
+  animation: blink 1s step-start infinite;
+  z-index: 2;
+  position: relative;
+}
+
+.start-button:hover {
+  background-color: #220044;
+  color: #ffffff;
+  border-color: #00aaff;
+}
+
+    
   </style>
 </head>
 <body>
 
   <!-- 🔃 Splash Screen -->
-  <div id="splash-screen">
-    <p class="blinking">▶ NOW LOADING...</p>
-  </div>
+<div id="splash-screen">
+  <p id="loading-text" class="blinking">▶ NOW LOADING...</p>
+  <button id="start-button" class="start-button" onclick="startSplash()" style="display: none;">▶ PRESS START</button>
+</div>
+
+
 
   <!-- 🔊 Sound Effects -->
   <audio id="arcade-sound" src="arcade-power-on.mp3" preload="auto"></audio>
   <audio id="game-boy-sound" src="game-boy-start.mp3" preload="auto"></audio>
   <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+  <audio id="splash-sound" src="Splash-Sound-Effect.mp3" preload="auto"></audio>
+
 
   <div class="container">
     <h1>AMARI'S RETRO PORTFOLIO</h1>
@@ -183,14 +231,14 @@
     </nav>
 
     <div class="image-placeholder">
-      [ Add your logo or pixel portrait here! ]
+      <img src="Amari_Byrd.jpg">
     </div>
 
     <div class="main-content">
       <div class="welcome">
         <h2>WELCOME!</h2>
         <p>
-          Yo! I’m Amari — a developer who turns pixels into magic. Whether it’s building games, data-driven apps, or AI-powered sites, I bring retro flavor to modern tech. Explore below and vibe with my projects!
+          Yo! I’m Amari — a Fresh graduate From Muncie Central Highschool. Whether it’s building games, data-driven apps, or AI-powered sites, I bring retro flavor to modern tech. Explore below and vibe with my projects!
         </p>
       </div>
 
@@ -221,30 +269,35 @@
     </div>
   </div>
 
-  <script>
-    function playSound() {
-      const sound = document.getElementById("click-sound");
-      sound.currentTime = 0;
-      sound.play();
-    }
+<script>
+  function playSound() {
+    const sound = document.getElementById("click-sound");
+    sound.currentTime = 0;
+    sound.play();
+  }
 
-    // Arcade power-on sound & Game Boy startup sound on splash page load
-    window.addEventListener('load', () => {
-      const arcadeSound = document.getElementById("arcade-sound");
-      const gameBoySound = document.getElementById("game-boy-sound");
+  function startSplash() {
+    const splashSound = document.getElementById("splash-sound");
+    splashSound.volume = 1;
+    splashSound.play();
 
-      arcadeSound.play();  // Play arcade sound
-      gameBoySound.play(); // Play Game Boy sound
+    const splash = document.getElementById('splash-screen');
+    splash.style.transition = 'opacity 1s ease';
+    splash.style.opacity = 0;
 
-      // Fade out the splash screen after the sounds finish
-      setTimeout(() => {
-        const splash = document.getElementById('splash-screen');
-        splash.style.transition = 'opacity 1s ease';
-        splash.style.opacity = 0;
-        setTimeout(() => splash.remove(), 1000);
-      }, 3000); // Adjusted to allow both sounds to play
-    });
-  </script>
+    setTimeout(() => splash.remove(), 1000);
+  }
+
+  window.addEventListener('load', () => {
+    // After 3 seconds, hide loading text, show start button
+    setTimeout(() => {
+      document.getElementById('loading-text').style.display = 'none';
+      document.getElementById('start-button').style.display = 'inline-block';
+    }, 3000); // Adjust timing as needed
+  });
+</script>
+
+
 
 </body>
 </html>
