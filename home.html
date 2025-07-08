@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amari's Retro Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -10,10 +11,10 @@
 
 <body>
   <!-- 🔃 Splash Screen -->
-<div id="splash-screen">
-  <p id="loading-text" class="blinking">▶ NOW LOADING...</p>
-  <button id="start-button" class="start-button" onclick="startSplash()" style="display: none;">▶ PRESS START</button>
-</div>
+  <div id="splash-screen">
+    <p id="loading-text" class="blinking">▶ NOW LOADING...</p>
+    <button id="start-button" class="start-button" onclick="startSplash()" style="display: none;">▶ PRESS START</button>
+  </div>
 
 
 
@@ -25,12 +26,13 @@
 
 
   <div class="container">
-    <h1>AMARI'S RETRO PORTFOLIO!</h1>
+    <h1>AMARI'S RETRO PORTFOLIO</h1>
 
     <nav>
-      <button onclick="playSound()">ABOUT</button>
-      <button onclick="playSound()">PROJECTS</button>
-      <button onclick="playSound()">CONTACT</button>
+      <a href="#about"><button onclick="scrollToSection()">ABOUT</button></a>
+      <a href="#projects"><button onclick="scrollToSection()">PROJECTS</button></a>
+      <a href="#skills"><button onclick="scrollToSection()">SKILLS</button></a>
+      <a href="#contact"><button onclick="scrollToSection()">CONTACT</button></a>
     </nav>
 
     <div class="image-placeholder">
@@ -41,72 +43,93 @@
       <div class="welcome">
         <h2>WELCOME!</h2>
         <p>
-          Yo! I’m Amari — A fresh graduate from Muncie Central Highschool. Whether it’s building games, or data-driven apps; I bring retro flavor to modern tech. Explore below and vibe with my projects!
+          Yo! I’m Amari — A fresh graduate from Muncie Central Highschool. Whether it’s building games, or data-driven
+          apps; I bring retro flavor to modern tech. Explore below and vibe with my projects!
         </p>
       </div>
+      <div class="music-box">
+        <h2>🎶 Chiptune Vibes</h2>
+        <p id="track-name">Track: Loading...</p>
+        <audio id="bg-music" preload="none" loop></audio>
+        <div class="music-controls">
+          <button onclick="prevTrack()" class="music-button">⏮</button>
+          <button onclick="toggleMusic()" class="music-button">▶</button>
+          <button onclick="nextTrack()" class="music-button">⏭</button>
+        </div>
+      </div>
 
-<section class="about-me">
-  <h2>🕹️ ABOUT ME</h2>
-  <p>
-    I’m Amari Byrd — a creative developer blending retro aesthetics with modern technology. A recent graduate from Muncie Central High School, I specialize in web design, interactive media, and game-inspired projects. I'm passionate about coding, pixel art, and making experiences that are fun, functional, and full of flair.
-  </p>
-  <p>
-    Whether I’m building a portfolio site that feels like an old-school arcade or diving into ethical game design, I bring high energy and a love for digital storytelling.
-  </p>
-</section>
+      <section id="about" class="about-me">
+        <h2>🕹️ ABOUT ME</h2>
+        <p>
+          I’m Amari Byrd — a creative developer blending retro aesthetics with modern technology. A recent graduate from
+          Muncie Central High School, I specialize in web design, interactive media, and game-inspired projects. I'm
+          passionate about coding, retro games, and making experiences that are fun, functional, and full of flair.
+        </p>
+        <p>
+          Whether I’m building a portfolio site that feels like an old-school arcade or diving into ethical game design,
+          I bring high energy and a love for digital storytelling.
+        </p>
+      </section>
 
- <section class="my-projects">
-  <h2>📁 MY PROJECTS</h2>
+      <section id="projects" class="my-projects">
+        <h2>📁 MY PROJECTS</h2>
 
-  <div class="project-card">
-    <h3>🎮 Loot Box Logic</h3>
-    <p>A colorful website that explores the ethics of microtransactions in modern games. Built with HTML, CSS, and a splash of opinionated design!</p>
-    <button onclick="playSound()">View Project</button>
-  </div>
+        <div class="project-card">
+          <h3>🎮 Loot Box Logic</h3>
+          <p>A colorful website that explores the ethics of microtransactions in modern games. Built with HTML, CSS, and
+            a splash of opinionated design!</p>
+          <a href="https://tinyboxtim1919.github.io/int-u2-project-starter-code-1/" target="_blank"><button>View Project</button></a>
+        </div>
 
-  <div class="project-card">
-    <h3>🧠 AI Career Slides</h3>
-    <p>An interactive slideshow showcasing real-world AI & Machine Learning career paths. Designed for clarity and accessibility.</p>
-    <button onclick="playSound()">Launch Slides</button>
-  </div>
+        <div class="project-card">
+          <h3>🧠 AI Career Slides</h3>
+          <p>An interactive slideshow showcasing real-world AI & Machine Learning career paths. Designed for clarity and
+            accessibility.</p>
+          <a
+            href="https://docs.google.com/presentation/d/1DP-XK4-R8FY5Nk8BlnWYln8cQVbgZlZYwsSswmhxOu4/edit?usp=sharing" target="_blank"><button>Launch
+              Slides</button></a>
+        </div>
 
-  <div class="project-card">
-    <h3>💾 Retro Portfolio</h3>
-    <p>This very site! Designed with 8-bit vibes, animations, and a splash screen to stand out while showing off my skills.</p>
-    <button onclick="playSound()">Reload Portfolio</button>
-  </div>
-</section>
+        <div class="project-card">
+          <h3>💾 Retro Portfolio</h3>
+          <p>This very site! Designed with 8-bit vibes, animations, and a splash screen to stand out while showing off
+            my skills.</p>
+          <button onclick="refreshPage()">Reload Portfolio</button>
+        </div>
+      </section>
 
     </div>
+    <section id="skills">
+      <div class="skills">
+        <h2>TECHNICAL SKILLS:</h2>
+        <ul>
+          <li>💻 JavaScript</li>
+          <li>🐍 Python</li>
+          <li>🎨 CSS</li>
+          <li>🗄️ SQL</li>
+        </ul>
 
-    <div class="skills">
-      <h2>TECHNICAL SKILLS:</h2>
-      <ul>
-        <li>💻 JavaScript</li>
-        <li>🐍 Python</li>
-        <li>🎨 CSS</li>
-        <li>🗄️ SQL</li>
-      </ul>
+        <h2>SOFT SKILLS:</h2>
+        <ul>
+          <li>⏱️ Time Management</li>
+          <li>🔄 Adaptability</li>
+          <li>👂 Active Listening</li>
+          <li>🧠 Organization</li>
+          <li>💗 Empathy</li>
+          <li>🤝 Teamwork</li>
+        </ul>
+      </div>
+    </section>
+    <!-- 📬 Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>CONTACT ME</h2>
+      <p>Email: <a href="mailto:amaribyrd110@gmail.com">amaribyrd110@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/TinyBoxTim1919" target="_blank">github.com/TinyBoxTim1919</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/amari-byrd-483a15373/"
+          target="_blank">linkedin.com/in/Amari-Byrd</a></p>
+    </section>
 
-      <h2>SOFT SKILLS:</h2>
-      <ul>
-        <li>⏱️ Time Management</li>
-        <li>🔄 Adaptability</li>
-        <li>👂 Active Listening</li>
-        <li>🧠 Organization</li>
-        <li>💗 Empathy</li>
-        <li>🤝 Teamwork</li>
-      </ul>
-    </div>
-
-    <section class="contact-section">
-  <h2>📬 CONTACT ME</h2>
-  <p>If you'd like to connect, collaborate, or just say hi, here's how to reach me!</p>
-
-</form>
-
-
-  </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
