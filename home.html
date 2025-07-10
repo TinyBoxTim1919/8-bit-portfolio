@@ -22,7 +22,7 @@
   <audio id="arcade-sound" src="arcade-power-on.mp3" preload="auto"></audio>
   <audio id="game-boy-sound" src="game-boy-start.mp3" preload="auto"></audio>
   <audio id="click-sound" src="click.mp3" preload="auto"></audio>
-  <audio id="splash-sound" src="Splash-Sound-Effect.mp3" preload="auto"></audio>
+  <audio id="splash-sound" src="assets/Splash-Sound-Effect.mp3" preload="auto"></audio>
 
 
   <div class="container">
@@ -36,7 +36,7 @@
     </nav>
 
     <div class="image-placeholder">
-      <img src="Amari_Byrd.jpg">
+      <img src="assets/Amari_Byrd.jpg">
     </div>
 
     <div class="main-content">
@@ -53,7 +53,7 @@
         <audio id="bg-music" preload="none" loop></audio>
         <div class="music-controls">
           <button onclick="prevTrack()" class="music-button">⏮</button>
-          <button onclick="toggleMusic()" class="music-button">▶</button>
+          <button id="play-pause-btn" class="music-button" onclick="toggleMusic()">▶</button>
           <button onclick="nextTrack()" class="music-button">⏭</button>
         </div>
       </div>
@@ -105,6 +105,7 @@
         <ul>
           <li>💻 JavaScript</li>
           <li>🐍 Python</li>
+          <li>🏠 HTML</li>
           <li>🎨 CSS</li>
           <li>🗄️ SQL</li>
         </ul>
@@ -130,6 +131,7 @@
     </section>
 
     <script src="script.js"></script>
+    </div>
 </body>
 
 </html>

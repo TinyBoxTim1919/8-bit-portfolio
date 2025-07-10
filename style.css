@@ -161,7 +161,7 @@ img {
 .skills {
     width: 100%;
     margin-top: 20px;
-    border: 2px solid #00aaff;
+    border: 3px solid #00aaff;
     box-shadow: 0 0 10px #00aaff;
     color: #00ccff;
     background-color: #111122;
@@ -218,6 +218,7 @@ img {
     color: #00ccff;
     font-size: 12px;
     box-shadow: 0 0 10px #00aaff;
+    line-height: 1.5;
 }
 
 .about-me h2 {
@@ -233,6 +234,7 @@ img {
     padding: 20px;
     color: #00ccff;
     box-shadow: 0 0 10px #00aaff;
+    line-height: 1.5;
 }
 
 .my-projects h2 {

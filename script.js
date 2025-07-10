@@ -45,11 +45,12 @@ function refreshPage() {
 
 
 const tracks = [
-  { name: "8-Bit Adventure", src: "8-Bit-Adventure.mp3" },
-  { name: "A Bit of Hope", src: "A-Bit-Of-Hope.mp3" },
-  { name: "Boss Time", src: "Boss-Time.mp3" },
-  { name: "Land Of 8-Bits", src: "Land-of-8-bits.mp3" },
-  { name: "8-Bit Smooth Presentation ", src: "8bit-smooth-presentation.mp3" }
+  { name: "8-Bit Adventure", src: "assets/8-Bit-Adventure.mp3" },
+  { name: "A Bit of Hope", src: "assets/A-Bit-Of-Hope.mp3" },
+  { name: "Boss Time", src: "assets/Boss-Time.mp3" },
+  { name: "Land Of 8-Bits", src: "assets/Land-of-8-bits.mp3" },
+  { name: "8-Bit Smooth Presentation ", src: "assets/8bit-smooth-presentation.mp3" },
+  { name: "Death By Glamour", src: "assets/Death-By-Glamour.mp3"}
 ];
 
 let currentTrackIndex = 0;
@@ -59,13 +60,21 @@ const trackName = document.getElementById("track-name");
 const playPauseBtn = document.getElementById("play-pause-btn");
 
 function loadTrack(index) {
+  audio.pause(); // Stop current audio
   audio.src = tracks[index].src;
   trackName.textContent = "Track: " + tracks[index].name;
 
+  // Remove previous listener to avoid stacking
+  audio.oncanplaythrough = null;
+
+  // If it's already playing, wait for browser to confirm it can play
   if (isPlaying) {
-    audio.play();
-    console.log
-    playPauseBtn.textContent = "⏸"; // Make sure the play button is accurate
+    audio.load();
+
+    audio.oncanplaythrough = () => {
+      audio.play();
+      playPauseBtn.textContent = "⏸";
+    };
   } else {
     playPauseBtn.textContent = "▶";
   }
@@ -83,6 +92,7 @@ function toggleMusic() {
   }
 }
 
+
 function nextTrack() {
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
   loadTrack(currentTrackIndex);
@@ -93,7 +103,9 @@ function prevTrack() {
   loadTrack(currentTrackIndex);
 }
 
+
 // Load the first track when page loads
 window.addEventListener("DOMContentLoaded", () => {
   loadTrack(currentTrackIndex);
+  audio.addEventListener("ended", nextTrack);
 });
