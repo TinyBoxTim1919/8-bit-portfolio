@@ -45,12 +45,15 @@ function refreshPage() {
 
 
 const tracks = [
+  { name: "A Hero Of The 80's", src: "assets/A-Hero-Of-The-80's.mp3"},
   { name: "8-Bit Adventure", src: "assets/8-Bit-Adventure.mp3" },
   { name: "A Bit of Hope", src: "assets/A-Bit-Of-Hope.mp3" },
   { name: "Boss Time", src: "assets/Boss-Time.mp3" },
   { name: "Land Of 8-Bits", src: "assets/Land-of-8-bits.mp3" },
-  { name: "8-Bit Smooth Presentation ", src: "assets/8bit-smooth-presentation.mp3" },
-  { name: "Death By Glamour", src: "assets/Death-By-Glamour.mp3"}
+  { name: "8-Bit Smooth Presentation", src: "assets/8bit-smooth-presentation.mp3" },
+  { name: "Death By Glamour", src: "assets/Death-By-Glamour.mp3"},
+  { name: "Boss Fight", src: "assets/Boss-Music.mp3"},
+  { name: "Lady Of the 80's", src: "assets/Lady-Of-The-80's.mp3"}
 ];
 
 let currentTrackIndex = 0;
@@ -60,21 +63,20 @@ const trackName = document.getElementById("track-name");
 const playPauseBtn = document.getElementById("play-pause-btn");
 
 function loadTrack(index) {
-  audio.pause(); // Stop current audio
+  audio.pause();
   audio.src = tracks[index].src;
   trackName.textContent = "Track: " + tracks[index].name;
 
-  // Remove previous listener to avoid stacking
-  audio.oncanplaythrough = null;
-
-  // If it's already playing, wait for browser to confirm it can play
+  // Auto-play if already playing
   if (isPlaying) {
     audio.load();
-
-    audio.oncanplaythrough = () => {
-      audio.play();
+    audio.play().then(() => {
       playPauseBtn.textContent = "⏸";
-    };
+    }).catch((err) => {
+      console.error("Playback failed:", err);
+      playPauseBtn.textContent = "▶";
+      isPlaying = false;
+    });
   } else {
     playPauseBtn.textContent = "▶";
   }
@@ -92,7 +94,6 @@ function toggleMusic() {
   }
 }
 
-
 function nextTrack() {
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
   loadTrack(currentTrackIndex);
@@ -103,9 +104,16 @@ function prevTrack() {
   loadTrack(currentTrackIndex);
 }
 
+// Auto-next when song ends
+audio.addEventListener("ended", () => {
+  currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+  loadTrack(currentTrackIndex);
+  if (isPlaying) {
+    audio.play(); // keep playback going
+  }
+});
 
-// Load the first track when page loads
+// Initial setup
 window.addEventListener("DOMContentLoaded", () => {
   loadTrack(currentTrackIndex);
-  audio.addEventListener("ended", nextTrack);
 });

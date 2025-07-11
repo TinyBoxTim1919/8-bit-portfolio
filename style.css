@@ -157,24 +157,119 @@ img {
     background-color: #333399;
 }
 
-/* Skills */
 .skills {
-    width: 100%;
-    margin-top: 20px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
     border: 3px solid #00aaff;
     box-shadow: 0 0 10px #00aaff;
     color: #00ccff;
     background-color: #111122;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    border-radius: 20px;
 }
 
-.skills ul {
+.skills h2 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #00ccff;
+    text-shadow: 0 0 5px #00ccff;
+}
+
+
+
+.skills-column,
+.aspirations-column,
+.hobbies-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.skills-column h3,
+.aspirations-column h3,
+.hobbies-column h3 {
+    color: #00ccff;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 4px #00ccff;
+    text-align: center;
+}
+
+.skills-column ul,
+.aspirations-column ul,
+.hobbies-column ul {
     list-style: none;
     padding-left: 0;
 }
 
-.skills li {
-    margin: 5px 0;
+.skills-column li,
+.aspirations-column li,
+.hobbies-column li {
+    margin: 6px 0;
+    background-color: #220044;
+    border: 2px solid #00aaff;
+    padding: 8px;
+    color: #00ccff;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #00aaff;
+    font-size: 10px;
+    text-align: center;
 }
+
+.skills-wrapper {
+    border: 3px solid #00aaff;
+    box-shadow: 0 0 15px #00aaff;
+    padding: 25px;
+    background-color: #0a0a1a;
+    max-width: 1200px;
+    margin-top: 30px;
+}
+
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.skills-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.skill-box {
+    flex: 1;
+    min-width: 220px;
+    background-color: #220044;
+    border: 3px solid #ff3399;
+    padding: 10px;
+    box-shadow: 0 0 8px #ff3399;
+}
+
+.skill-box h3 {
+    color: #00ccff;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 5px #00ccff;
+}
+
+.skill-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-box li {
+    color: #00ccff;
+    font-size: 10px;
+    padding: 6px 0;
+    text-align: center;
+}
+
 
 /* Mobile responsive */
 @media (max-width: 700px) {
@@ -246,6 +341,7 @@ img {
 .project-card {
     background-color: #111122;
     border: 2px solid #ff3399;
+    box-shadow: 0 0 8px #ff3399;
     padding: 15px;
     margin-bottom: 15px;
     font-size: 12px;
@@ -354,7 +450,8 @@ html {
     font-family: 'Press Start 2P', monospace;
     text-align: center;
     color: #ffcc00;
-    border-radius: 50px 50px 10px 10px; /* Arched top corners like a jukebox */
+    border-radius: 50px 50px 10px 10px;
+    /* Arched top corners like a jukebox */
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
