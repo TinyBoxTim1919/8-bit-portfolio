@@ -35,9 +35,7 @@ window.addEventListener('load', () => {
 
 // Refresh button sound and animation
 function refreshPage() {
-    const sound = document.getElementById("click-sound");
-    sound.currentTime = 0;
-    sound.play();
+  console.log("refresh should happen yay!!!");
 
     window.scrollTo(0, 0); // Scroll to top of page
 
@@ -47,7 +45,7 @@ function refreshPage() {
     }, 300);
 }
 
-// This is your music playlist
+// This is the music playlist
 const tracks = [
   { name: "A Hero Of The 80's", src: "assets/A-Hero-Of-The-80's.mp3"},
   { name: "8-Bit Adventure", src: "assets/8-Bit-Adventure.mp3" },
