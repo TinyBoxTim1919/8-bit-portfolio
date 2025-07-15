@@ -266,6 +266,7 @@ img {
 
 /* Individual skill box */
 .skill-box {
+    
     flex: 1;
     min-width: 220px;
     background-color: #220044;
@@ -293,7 +294,7 @@ img {
     color: #00ccff;
     font-size: 15px;
     padding: 6px 0;
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -440,6 +441,17 @@ img {
     color: #ffffff;
     margin-bottom: 20px;
 }
+
+.contact-section a{
+    color: #00aaff;
+}
+
+.contact-section a:visited {
+  color: #ff3399;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 
 
 /* Contact form layout */
